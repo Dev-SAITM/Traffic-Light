@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Traffic Light</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .traffic-light {
+            width: 100px;
+            height: 250px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .light {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 10px auto;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="light red" onclick="changeLight('red')"></div>
+        <div class="light yellow" onclick="changeLight('yellow')"></div>
+        <div class="light green" onclick="changeLight('green')"></div>
+    </div>
+    <script>
+        function changeLight(color) {
+            // Remove 'active' class from all lights
+            document.querySelectorAll('.light').forEach(light => light.classList.remove('active'));
+            
+            // Add 'active' class to the clicked light
+            document.querySelector('.' + color).classList.add('active');
+        }
+    </script>
+</body>
+</html>
